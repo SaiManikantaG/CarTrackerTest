@@ -1,25 +1,22 @@
 package com.tracker.com.tracker.entity;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * Created by sai on 6/25/17.
  */
 
+
 @Entity
-@NamedQueries({
-        @NamedQuery(name = "Vehicle.findAll", query = "select vh from vehicle vh order by year DESC"),
-        @NamedQuery(name = "Vehicle.findByVin" , query = "select vh from vehicle vh where vin=:paramVin")
+public class Vehicle {
 
-
-
-})
-public class vehicle {
 
     @Id
-    @Column(unique = true)
-    private String vin;
+@Column(unique = true)
+private String vin;
 
     private String make;
     private String model;
@@ -27,6 +24,9 @@ public class vehicle {
     private int redlineRpm;
     private int maxFuelVolume;
     private String lastServiceDate;
+
+    @OneToOne
+    private Readings readings;
 
     public String getVin() {
         return vin;
@@ -86,7 +86,7 @@ public class vehicle {
 
     @Override
     public String toString() {
-        return "vehicle{" +
+        return "CarDetail{" +
                 "vin='" + vin + '\'' +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
