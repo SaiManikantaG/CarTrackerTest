@@ -1,12 +1,16 @@
-package com.vehicle.service;
+package vehicle.service;
 
-import com.vehicle.entity.Vehicle;
-import com.vehicle.exception.BadRequestException;
-import com.vehicle.exception.ResourceNotFoundException;
-import com.vehicle.repository.VehicleRepository;
+import vehicle.entity.Vehicle;
+import vehicle.exception.BadRequestException;
+import vehicle.exception.ResourceNotFoundException;
+import vehicle.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import vehicle.entity.Vehicle;
+import vehicle.exception.BadRequestException;
+import vehicle.exception.ResourceNotFoundException;
+import vehicle.repository.VehicleRepository;
 
 import java.util.List;
 

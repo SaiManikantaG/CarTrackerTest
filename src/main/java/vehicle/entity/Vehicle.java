@@ -1,4 +1,4 @@
-package com.vehicle.entity;
+package vehicle.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

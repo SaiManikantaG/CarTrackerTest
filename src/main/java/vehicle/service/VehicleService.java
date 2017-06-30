@@ -1,6 +1,6 @@
-package com.vehicle.service;
+package vehicle.service;
 
-import com.vehicle.entity.Vehicle;
+import vehicle.entity.Vehicle;
 
 import java.util.List;
 

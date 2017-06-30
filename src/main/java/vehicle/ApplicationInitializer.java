@@ -1,4 +1,4 @@
-package com.vehicle;
+package vehicle;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

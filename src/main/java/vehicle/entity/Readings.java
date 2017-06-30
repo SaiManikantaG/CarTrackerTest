@@ -1,6 +1,4 @@
-package com.vehicle.entity;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
+package vehicle.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

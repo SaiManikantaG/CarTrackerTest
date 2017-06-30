@@ -1,11 +1,6 @@
-package com.vehicle.entity;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
+package vehicle.entity;
 
 import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 /**
  * Created by sai on 6/26/17.

@@ -1,4 +1,4 @@
-package com.vehicle;
+package vehicle;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,15 +6,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
-import javax.servlet.*;
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -50,7 +46,7 @@ public class JPAConfig {
 
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/vehicle_tracker?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true& useLegacyDatetimeCode=false&serverTimezone=UTC");
+        ds.setUrl("jdbc:mysql://localhost:3306/car_tracker?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true& useLegacyDatetimeCode=false&serverTimezone=UTC");
         ds.setUsername("root");
         ds.setPassword("root");
 

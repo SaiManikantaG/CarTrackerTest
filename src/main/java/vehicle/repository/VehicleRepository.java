@@ -1,6 +1,7 @@
-package com.vehicle.repository;
+package vehicle.repository;
 
-import com.vehicle.entity.Vehicle;
+import vehicle.entity.Vehicle;
+import vehicle.entity.Vehicle;
 
 import java.util.List;
 
