@@ -1,32 +1,30 @@
-package com.tracker.com.tracker.entity;
+package com.vehicle.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by sai on 6/25/17.
  */
+@NamedQueries({
+        @NamedQuery(name = "Vehicle.displayAll", query = "select vh from Vehicle vh order by year DESC"),
+        @NamedQuery(name = "Vehicle.displayByVin", query = "select vh from Vehicle vh where vin=:paramVin")
 
 
+})
 @Entity
 public class Vehicle {
 
 
     @Id
-@Column(unique = true)
-private String vin;
-
+    @Column(unique = true)
+    private String vin;
     private String make;
     private String model;
     private int year;
     private int redlineRpm;
     private int maxFuelVolume;
-    private String lastServiceDate;
-
-    @OneToOne
-    private Readings readings;
+    private Timestamp lastServiceDate;
 
     public String getVin() {
         return vin;
@@ -76,24 +74,24 @@ private String vin;
         this.maxFuelVolume = maxFuelVolume;
     }
 
-    public String getLastServiceDate() {
+    public Timestamp getLastServiceDate() {
         return lastServiceDate;
     }
 
-    public void setLastServiceDate(String lastServiceDate) {
+    public void setLastServiceDate(Timestamp lastServiceDate) {
         this.lastServiceDate = lastServiceDate;
     }
 
     @Override
     public String toString() {
-        return "CarDetail{" +
+        return "Vehicle{" +
                 "vin='" + vin + '\'' +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", redlineRpm=" + redlineRpm +
                 ", maxFuelVolume=" + maxFuelVolume +
-                ", lastServiceDate='" + lastServiceDate + '\'' +
+                ", lastServiceDate=" + lastServiceDate +
                 '}';
     }
 }

@@ -1,58 +1,89 @@
-package com.tracker.com.tracker.entity;
+package com.vehicle.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.UUID;
 
 /**
- * Created by sai on 6/25/17.
+ * Created by sai on 6/26/17.
  */
+@NamedQueries({
+        @NamedQuery(name = "Readings.displayAllReading", query = "select rs from Readings rs"),
+        @NamedQuery(name = "Readings.displayById", query = "select rs from Readings rs where id=:paramId")
+
+})
+//@Column(columnDefinition = "VARCHAR(36)")
 
 @Entity
 public class Readings {
-
     @Id
+    @Column(columnDefinition = "VARCHAR(36)")
     private String vin;
-
-    private double latitude;
-    private double longitute;
-    private String timestamp;
+    private float latitude;
+    private float longitute;
+    private Timestamp timestamp;
     private double fuelVolume;
     private double speed;
     private int engineHp;
-    private boolean checkEngineLightOn;
-    private boolean engineCoolantLow;
-    private boolean cruiseControlOn;
-    private int engineRpm;
+
+  /*  public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = UUID.randomUUID()
+                .toString();
+    }*/
 
     public String getVin() {
         return vin;
     }
 
     public void setVin(String vin) {
-        this.vin = vin;
+        this.vin = UUID.randomUUID()
+                .toString();
     }
 
-    public double getLatitude() {
+    private boolean checkEngineLightOn;
+    private boolean engineCoolantLow;
+    private boolean cruiseControlOn;
+    private int engineRpm;
+
+
+    private Tires tires;
+
+    public Tires getTires() {
+        return tires;
+    }
+
+    public void setTires(Tires tires) {
+        this.tires = tires;
+    }
+
+
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitute() {
+    public float getLongitute() {
         return longitute;
     }
 
-    public void setLongitute(double longitute) {
+    public void setLongitute(float longitute) {
         this.longitute = longitute;
     }
 
-    public String getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -118,7 +149,7 @@ public class Readings {
                 "vin='" + vin + '\'' +
                 ", latitude=" + latitude +
                 ", longitute=" + longitute +
-                ", timestamp='" + timestamp + '\'' +
+                ", timestamp=" + timestamp +
                 ", fuelVolume=" + fuelVolume +
                 ", speed=" + speed +
                 ", engineHp=" + engineHp +
@@ -126,6 +157,7 @@ public class Readings {
                 ", engineCoolantLow=" + engineCoolantLow +
                 ", cruiseControlOn=" + cruiseControlOn +
                 ", engineRpm=" + engineRpm +
+                ", tires=" + tires +
                 '}';
     }
 }
